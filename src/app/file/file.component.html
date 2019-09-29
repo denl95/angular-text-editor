@@ -1,3 +1,2 @@
-<div class="file">
-  {{text$ | async}}
+<div [innerHTML]="htmlContent" contenteditable="true" (input)="text=$event.target.innerHTML" #file class="file">
 </div>

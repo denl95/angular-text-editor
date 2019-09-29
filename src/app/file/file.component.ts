@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TextService } from '../text-service/text.service';
 
 @Component({
@@ -8,12 +8,10 @@ import { TextService } from '../text-service/text.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FileComponent implements OnInit {
-  text$: Promise<string>;
-
+  htmlContent: string;
   constructor(private textService: TextService) {
   }
-
   ngOnInit() {
-    this.text$ = this.textService.getMockText();
+    this.htmlContent = this.textService.text;
   }
 }
